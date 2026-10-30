@@ -135,3 +135,23 @@ git --no-pager log --graph --oneline --all
 El contador registra cada clic dentro del tablero sobre una casilla todavía oculta. 
 Los clics fuera del tablero y sobre parejas resueltas se ignoran. 
 Un clic repetido sobre una casilla pendiente también cuenta.
+
+## Contribución de Yerik Escobar Aspron
+
+### Centrado de contenido
+
+Se modificó la función `draw()` para centrar horizontalmente el contenido de las casillas utilizando `align='center'` y las coordenadas del centro de cada casilla. También se ajustó la posición vertical considerando la línea base del texto.
+
+### Elementos memorables
+
+Se sustituyeron los valores numéricos por 32 palabras familiares en español, relacionadas con animales, alimentos y objetos cotidianos.
+
+Cada palabra aparece dos veces, conservando las 64 casillas y las 32 parejas originales.
+
+Las palabras se eligieron para permitir asociaciones con elementos conocidos. No se realizaron pruebas científicas para demostrar una mejora de la memoria.
+
+### Archivos modificados
+
+- `memory.py`: lista de palabras y presentación del contenido.
+- `README.md`: documentación de la contribución individual.
+

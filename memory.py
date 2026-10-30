@@ -15,7 +15,17 @@ from turtle import *
 from freegames import path
 
 car = path('car.gif')
-tiles = list(range(32)) * 2
+words = [
+    'sol', 'luna', 'mar', 'pez',
+    'oso', 'gato', 'perro', 'vaca',
+    'pato', 'rana', 'lobo', 'ave',
+    'pan', 'uva', 'pera', 'coco',
+    'taco', 'arroz', 'sopa', 'leche',
+    'mesa', 'silla', 'cama', 'libro',
+    'lapiz', 'tren', 'barco', 'carro',
+    'casa', 'flor', 'hoja', 'nube',
+]
+tiles = words * 2
 state = {'mark': None, 'taps': 0, 'finished': False}
 hide = [True] * 64
 
@@ -85,10 +95,16 @@ def draw():
 
     if mark is not None and hide[mark]:
         x, y = xy(mark)
+        #Centra el contenido en una casilla de 50x50
+
         up()
-        goto(x + 2, y)
+        goto(x + 25, y + 18)
         color('black')
-        write(tiles[mark], font=('Arial', 30, 'normal'))
+        write(
+            str(tiles[mark]),
+            align = 'center',
+            font=('Arial', 12, 'normal'),
+        )
 
 # Muestra el contador fuera del tablero
     up()
@@ -117,7 +133,7 @@ def draw():
 
 
 shuffle(tiles)
-setup(420, 480, 370, 0)
+setup(460, 540, 370, 0)
 screensize(420, 500)
 addshape(car)
 hideturtle()
