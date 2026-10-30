@@ -80,9 +80,9 @@ deactivate
 | Responsable | Funcionalidad | Estado |
 |---|---|---|
 | Diego | Contar y mostrar taps | HECHO |
-| Diego | Detectar que se completó el tablero | Pendiente |
-| Yerik | Centrar el contenido en las casillas | Pendiente |
-| Yerik | Sustituir números por elementos memorables | Pendiente |
+| Diego | Detectar que se completó el tablero | HECHO |
+| Yerik | Centrar el contenido en las casillas | HECHO |
+| Yerik | Sustituir números por elementos memorables | HECHO |
 
 ## Acuerdos de colaboración
 
