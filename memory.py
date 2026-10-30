@@ -98,7 +98,7 @@ def draw():
         #Centra el contenido en una casilla de 50x50
 
         up()
-        goto(x + 52, y + 18)
+        goto(x + 25, y + 18)
         color('black')
         write(
             str(tiles[mark]),
