@@ -16,7 +16,7 @@ from freegames import path
 
 car = path('car.gif')
 tiles = list(range(32)) * 2
-state = {'mark': None, 'taps': 0}
+state = {'mark': None, 'taps': 0, 'finished': False}
 hide = [True] * 64
 
 
@@ -45,6 +45,9 @@ def xy(count):
 
 def tap(x, y):
     """Procesa un clic valido y cuenta las selecciones del jugador."""
+    if state['finished']:
+        return
+
     if not (-200 <= x < 200 and -200 <= y < 200):
         return
 
@@ -63,6 +66,8 @@ def tap(x, y):
         hide[mark] = False
         state['mark'] = None
 
+    if not any(hide):
+        state['finished'] = True
 
 def draw():
     """Draw image and tiles."""
@@ -94,6 +99,18 @@ def draw():
         align='center',
         font=('Arial', 16, 'normal'),
     )
+
+# Muestra mensaje de victoria
+
+    if state['finished']:
+        up()
+        goto(0, -225)
+        color('black')
+        write(
+            "¡Completaste las 32 parejas!",
+            align = 'center',
+            font = ('Arial', 15, 'bold'),
+        )
 
     update()
     ontimer(draw, 100)
