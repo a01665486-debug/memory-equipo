@@ -16,7 +16,7 @@ from freegames import path
 
 car = path('car.gif')
 tiles = list(range(32)) * 2
-state = {'mark': None}
+state = {'mark': None, 'taps': 0, 'finished': False}
 hide = [True] * 64
 
 
@@ -44,8 +44,19 @@ def xy(count):
 
 
 def tap(x, y):
-    """Update mark and hidden tiles based on tap."""
+    """Procesa un clic valido y cuenta las selecciones del jugador."""
+    if state['finished']:
+        return
+
+    if not (-200 <= x < 200 and -200 <= y < 200):
+        return
+
     spot = index(x, y)
+
+    if not hide[spot]:
+        return
+
+    state['taps'] += 1
     mark = state['mark']
 
     if mark is None or mark == spot or tiles[mark] != tiles[spot]:
@@ -55,6 +66,8 @@ def tap(x, y):
         hide[mark] = False
         state['mark'] = None
 
+    if not any(hide):
+        state['finished'] = True
 
 def draw():
     """Draw image and tiles."""
@@ -77,12 +90,35 @@ def draw():
         color('black')
         write(tiles[mark], font=('Arial', 30, 'normal'))
 
+# Muestra el contador fuera del tablero
+    up()
+    goto(0, 205)
+    color('black')
+    write(
+        f"Taps: {state['taps']}",
+        align='center',
+        font=('Arial', 16, 'normal'),
+    )
+
+# Muestra mensaje de victoria
+
+    if state['finished']:
+        up()
+        goto(0, -225)
+        color('black')
+        write(
+            "¡Completaste las 32 parejas!",
+            align = 'center',
+            font = ('Arial', 15, 'bold'),
+        )
+
     update()
     ontimer(draw, 100)
 
 
 shuffle(tiles)
-setup(420, 420, 370, 0)
+setup(420, 480, 370, 0)
+screensize(420, 500)
 addshape(car)
 hideturtle()
 tracer(False)

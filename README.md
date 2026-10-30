@@ -79,7 +79,7 @@ deactivate
 
 | Responsable | Funcionalidad | Estado |
 |---|---|---|
-| Diego | Contar y mostrar taps | Pendiente |
+| Diego | Contar y mostrar taps | HECHO |
 | Diego | Detectar que se completó el tablero | Pendiente |
 | Yerik | Centrar el contenido en las casillas | Pendiente |
 | Yerik | Sustituir números por elementos memorables | Pendiente |
@@ -102,10 +102,10 @@ Los resultados se registrarán después de realizar las pruebas.
 
 | Prueba | Resultado esperado | Resultado observado |
 |---|---|---|
-| Inicio | El juego abre y muestra el tablero | Pendiente |
-| Contador | Aumenta por cada clic aceptado sobre una casilla oculta | Pendiente |
-| Clic fuera del tablero | No cuenta y no provoca errores | Pendiente |
-| Pareja resuelta | No vuelve a seleccionarse ni aumenta el contador | Pendiente |
+| Inicio | El juego abre y muestra el tablero | HECHO  |
+| Contador | Aumenta por cada clic aceptado sobre una casilla oculta | HECHO |
+| Clic fuera del tablero | No cuenta y no provoca errores | HECHO |
+| Pareja resuelta | No vuelve a seleccionarse ni aumenta el contador | HECHO |
 | Victoria | Se anuncia al resolver las 32 parejas | Pendiente |
 | Fin de partida | El contador deja de aumentar | Pendiente |
 | Centrado | El contenido aparece centrado en la casilla | Pendiente |
@@ -128,3 +128,10 @@ Para consultar el historial:
 ```bash
 git --no-pager log --graph --oneline --all
 ```
+
+
+# Contador de taps:
+
+El contador registra cada clic dentro del tablero sobre una casilla todavía oculta. 
+Los clics fuera del tablero y sobre parejas resueltas se ignoran. 
+Un clic repetido sobre una casilla pendiente también cuenta.
